@@ -1,4 +1,4 @@
-<li>{{item.name}} <span {{action 'toggleModal'}}>[update]</span> <span {{action 'deleteItem' item}}>[delete]</span></li>
+<li>{{item.name}} - quantity: {{item.quantity}} <span {{action 'toggleModal'}}>[update]</span> <span {{action 'deleteItem' item}}>[delete]</span></li>
 
 {{#if showModal}}
   {{#modal-dialog close='toggleModal'

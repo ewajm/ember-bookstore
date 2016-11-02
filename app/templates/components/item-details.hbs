@@ -12,6 +12,10 @@
       <h4>Sold out :(</h4>
     {{/if}}
     <p>{{item.description}}</p>
-    <button {{action 'addToCart' item}} class='btn btn-success btn-large center-block {{if out "disabled"}}'>Add to Cart</button>
+    <form class='form-inline'>
+      <label for="quantity">Quantity:</label>
+      {{input value=quantity type='number' min='1' max='3'}}
+      <button {{action 'addToCart' item}} class='btn btn-success btn-large center-block {{if out "disabled"}}'>Add to Cart</button>
+    </form>
   </div>
 </div>

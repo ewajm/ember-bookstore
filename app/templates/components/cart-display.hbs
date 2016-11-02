@@ -12,22 +12,26 @@
     <h4>Total</h4>
   </div>
 </div>
+{{#if shoppingCart.items}}
+<hr>
 {{#each shoppingCart.items as |item|}}
 <div class="row">
   <div class="col-sm-6">
-    <p>{{item.name}}</p>
+    <p>{{item.item.name}}</p>
   </div>
   <div class="col-sm-2">
-    <p>{{item.price}}</p>
+    <p>${{item.item.price}}.00</p>
   </div>
   <div class="col-sm-2">
-    <p>1</p>
+    <p>{{item.quantity}}</p>
   </div>
   <div class="col-sm-2">
-    <p>{{item.price}}</p>
+    <p>{{quantity-price item.item.price item.quantity}}</p>
   </div>
 </div>
 {{/each}}
+{{/if}}
+<hr>
 <div class="row">
   <div class="col-sm-8">
 
@@ -36,6 +40,59 @@
     Total:
   </div>
   <div class="col-sm-2">
-    {{shoppingCart.totalPrice}}
+    ${{shoppingCart.totalPrice}}.00
   </div>
 </div>
+{{#if shoppingCart.items}}
+<hr>
+<button class='btn btn-primary btn-lg center-block' {{action 'toggleModal'}}>Check Out</button>
+{{/if}}
+
+{{#if showModal}}
+  {{#modal-dialog close='toggleModal'
+    targetAttachment="center"
+    translucentOverlay=true
+    container-class="wider"}}
+    <form {{action 'checkOut' item on='submit'}}>
+      <div class="form-group">
+        <label for="name">User name:</label>
+        {{input value=name class='form-control'}}
+      </div>
+      <div class="form-group">
+        <label for="location">Location:</label>
+        {{input value=location class='form-control'}}
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+        </div>
+        <div class="col-sm-3">
+          Subtotal:
+        </div>
+        <div class="col-sm-3 align-right">
+          ${{shoppingCart.totalPrice}}.00
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+        </div>
+        <div class="col-sm-3">
+          Shipping:
+        </div>
+        <div class="col-sm-3 align-right">
+          $5.00
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+        </div>
+        <div class="col-sm-3">
+          Total:
+        </div>
+        <div class="col-sm-3 align-right">
+          {{total-price shoppingCart.totalPrice 5}}
+        </div>
+      </div>
+      <button class="btn btn-success">Confirm Check Out</button>
+    </form>
+    {{/modal-dialog}}
+{{/if}}

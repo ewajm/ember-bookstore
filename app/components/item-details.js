@@ -11,7 +11,8 @@ export default Ember.Component.extend({
   }),
   actions: {
     addToCart(item){
-      this.get('shoppingCart').add(item);
+      var quant = this.get('quantity') ? parseInt(this.get('quantity')):1;
+      this.get('shoppingCart').add(item, quant);
       this.sendAction('addToCart');
     }
   }
