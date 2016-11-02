@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-sm-6">
+    <img src={{item.image}} alt={{item.name}} class='img-responsive'/>
+  </div>
+  <div class="col-sm-6">
+    <h2>{{item.name}}</h2>
+    <h3>${{item.price}}.00</h3>
+    {{#if few}}
+      <h4>Almost out! Only {{item.quantity}} left!</h4>
+    {{/if}}
+    {{#if out}}
+      <h4>Sold out :(</h4>
+    {{/if}}
+    <p>{{item.description}}</p>
+    <button {{action 'addToCart' item}} class='btn btn-success btn-large center-block'>Add to Cart</button>
+  </div>
+</div>
