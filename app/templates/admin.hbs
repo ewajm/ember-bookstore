@@ -7,7 +7,7 @@
     <h3>Update item:</h3>
     <ul>
       {{#each model as |item|}}
-        {{update-item item=item}}
+        {{modify-item item=item updateItem='updateItem' deleteItem='deleteItem'}}
       {{/each}}
     </ul>
   </div>

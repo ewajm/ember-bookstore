@@ -4,7 +4,7 @@ export default Ember.Component.extend({
   shoppingCart: Ember.inject.service(),
 
   few: Ember.computed(function(){
-    return this.get('item.quantity') < 5;
+    return this.get('item.quantity') < 5 && this.get('item.quantity') > 0;
   }),
   out: Ember.computed(function(){
     return this.get('item.quantity') <= 0;
@@ -12,7 +12,7 @@ export default Ember.Component.extend({
   actions: {
     addToCart(item){
       this.get('shoppingCart').add(item);
-      this.sendAction('addToCart')
+      this.sendAction('addToCart');
     }
   }
 });

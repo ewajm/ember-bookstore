@@ -1,0 +1,22 @@
+@import "ember-modal-dialog/ember-modal-structure";
+@import "ember-modal-dialog/ember-modal-appearance";
+
+.main {
+  background-image: url('/assets/images/header.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-top: 100px;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.wider {
+  width: 50%;
+}
+
+.disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}

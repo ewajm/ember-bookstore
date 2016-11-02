@@ -12,6 +12,6 @@
       <h4>Sold out :(</h4>
     {{/if}}
     <p>{{item.description}}</p>
-    <button {{action 'addToCart' item}} class='btn btn-success btn-large center-block'>Add to Cart</button>
+    <button {{action 'addToCart' item}} class='btn btn-success btn-large center-block {{if out "disabled"}}'>Add to Cart</button>
   </div>
 </div>

@@ -1,8 +1,17 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  showModal: false,
   actions: {
-    saveItem(){
+    toggleModal(){
+      this.toggleProperty('showModal');
+    },
+    deleteItem(item){
+      if (confirm("Are you sure you want to delete this item?")) {
+        this.sendAction('deleteItem', item);
+      }
+    },
+    updateItem(item){
       var params = {
         name: this.get('name'),
         description: this.get('description'),
@@ -15,7 +24,8 @@ export default Ember.Component.extend({
       this.set('image', '');
       this.set('price', '');
       this.set('quantity', '');
-      this.sendAction('saveItem', params);
+      this.toggleProperty('showModal');
+      this.sendAction('updateItem', item, params);
     }
   }
 });
