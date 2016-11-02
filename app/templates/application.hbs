@@ -1,0 +1,21 @@
+<div class="container">
+  <nav>
+    <div class="navbar-left">
+      {{#link-to 'index'}}
+        {{fa-icon 'book'}}
+      {{/link-to}}
+      |
+      {{#link-to 'store'}}
+        Store
+      {{/link-to}}
+    </div>
+    <div class="navbar-right">
+      {{#link-to 'admin'}}
+        Admin
+      {{/link-to}}
+    </div>
+  </nav>
+</div>
+<div class="container">
+{{outlet}}
+</div>

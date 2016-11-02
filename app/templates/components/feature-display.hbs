@@ -1,0 +1,14 @@
+<div class="row">
+  {{#each featureds as |item|}}
+  <div class="col-sm-6">
+    <img src={{item.image}} class='img-responsive'>
+  </div>
+  <div class="col-sm-6">
+    <h3>{{item.name}}</h3>
+    <p>
+      ${{item.price}}.00
+    </p>
+    <h4>{{#link-to 'item' item.id}}Buy now{{/link-to}}</h4>
+  </div>
+  {{/each}}
+</div>
