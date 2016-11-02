@@ -1,0 +1,7 @@
+{{#link-to 'cart'}}
+  {{fa-icon 'shopping-cart'}}
+  {{#if shoppingCart.totalPrice}}
+    ${{shoppingCart.totalPrice}}.00
+  {{/if}}
+  ({{shoppingCart.totalItems}} items)
+{{/link-to}}

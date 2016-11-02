@@ -8,14 +8,10 @@
       {{#link-to 'store'}}
         Store
       {{/link-to}}
+      | {{#link-to 'admin'}}Admin{{/link-to}}
     </div>
     <div class="navbar-right">
-      {{#link-to 'admin'}}
-        Admin
-      {{/link-to}}
-      {{#link-to 'cart'}}
-        {{fa-icon 'shopping-cart'}}
-      {{/link-to}}
+      {{cart-number}}
     </div>
   </nav>
 </div>
